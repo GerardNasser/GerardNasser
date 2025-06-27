@@ -9,7 +9,6 @@
 }
 
 .scrolling-text {
-  /* This class will be applied to your text in the Markdown file */
   animation: scroll-left 20s linear infinite;
   white-space: nowrap;
   overflow: hidden;
