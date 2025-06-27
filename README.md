@@ -3,19 +3,18 @@
     0%   { transform: translateX(100%); }
     100% { transform: translateX(-100%); }
 }
-
-.scrolling-text {
+.gh-scrolling-text {
+    animation: marquee 15s linear infinite;
+    display: block;
+    width: 100%;
     white-space: nowrap;
     overflow: hidden;
-    box-sizing: border-box;
-    display: inline-block; /* Or block */
-    animation: marquee 15s linear infinite;
-    padding-left: 100%; /* Start off-screen */
 }
 </style>
 
+
 <div class="scrolling-text">
-  <span>HELLO WORLD ヾ(^▽^*)))!!</span>
+  <span>HELLO WORLD ヾ(^▽^*)!!</span>
 </div>
 
 <!--
