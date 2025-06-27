@@ -1,21 +1,5 @@
-<style>
-@keyframes marquee {
-    0%   { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
-}
-.gh-scrolling-text {
-    animation: marquee 15s linear infinite;
-    display: block;
-    width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-}
-</style>
+## HELLO WORLD ヾ(^▽^*)!!
 
-
-<div class="scrolling-text">
-  <span>HELLO WORLD ヾ(^▽^*)!!</span>
-</div>
 
 <!--
 **gernasser/gernasser** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
