@@ -15,7 +15,7 @@
 </style>
 
 <div class="scrolling-text">
-  HELLO WORLD ヾ(^▽^*)))!!
+  <span>HELLO WORLD ヾ(^▽^*)))!!</span>
 </div>
 
 <!--
