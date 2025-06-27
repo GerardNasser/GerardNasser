@@ -1,4 +1,8 @@
-## Hi there 👋
+<link rel="stylesheet" href="styles.css">
+
+<div class="scrolling-text">
+  HELLO WORLD ヾ(^▽^*)))!!
+</div>
 
 <!--
 **gernasser/gernasser** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
