@@ -1,4 +1,18 @@
-<link rel="stylesheet" href="styles.css">
+<style>
+@keyframes marquee {
+    0%   { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+.scrolling-text {
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+    display: inline-block; /* Or block */
+    animation: marquee 15s linear infinite;
+    padding-left: 100%; /* Start off-screen */
+}
+</style>
 
 <div class="scrolling-text">
   HELLO WORLD ヾ(^▽^*)))!!
