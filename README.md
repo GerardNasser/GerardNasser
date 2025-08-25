@@ -5,7 +5,7 @@
 </p>
 
 <p align="center"> 
-    <img src="https://komarev.com/ghpvc/?username=7oSkaaa&label=Profile%20views&color=0047AB&style=plastic?" alt="7oSkaaa" height=25px, width=160px/> 
+    <img src="https://komarev.com/ghpvc/?username=GerardNasser&label=Profile%20views&color=0047AB&style=plastic?" alt="7oSkaaa" height=25px, width=160px/> 
 
 </p>
 
