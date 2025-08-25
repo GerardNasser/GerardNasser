@@ -9,7 +9,11 @@
 
 </p>
 
+<h2 align="left">About Me</h2>
+<h2 align="left">Tool Kit</h2>
+<h2 align="left">Github Stats</h2>
 <h2 align="left">Project Repositories</h2>
+
 <!--
 **gernasser/gernasser** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
