@@ -1,8 +1,8 @@
-# 🧬 Hey there! I'm Gerard N.! 
+# 🧬 Hey there! I'm Gerard! 
 
 <div align="center">
 
-![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=36BCF7&width=435&lines=Bioinformatics+PhD+Student;Data+Scientist+%7C+Code+Enthusiast;Turning+Biology+into+Algorithms;Coffee+%2B+Code+%3D+Discovery)
+![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=36BCF7&width=435&lines=Bioinformatics+PhD+Student;Data+Scientist+%7C+Code+Enthusiast;Curiosity+%2B+Code+%3D+Discovery)
 
 </div>
 
