@@ -55,11 +55,11 @@ class BioinformaticsStudent:
 
 ## 🔬 Current Research Projects
 
-### 🧬 Analysis of ESKAPEE Pathogens with Hi-C - Methods Study - *Evaluating Multiple approaches to Hi-C with Microbial Communities to determine the best and most cost effective approach both in wet lab and computationally.*
+### 🧬 Analysis of ESKAPEE Pathogens with Hi-C - Methods Study - *Evaluating Multiple approaches to Hi-C with Microbial Communities to determine the best and most cost effective approach both in wet lab and computation.*
 - **Status**: 🚀 Active Development
 - **Focus**: ESKAPEE Pathogens and AMR
 - **Tech Stack**: Python, Bash, R, Docker
-- **Impact**: The results of this project will give a standardized, modular pipeline that researchers can use to effectively look at microbial communities in general, but specifically those in sensitive areas (hospitals and clinics) to asses pathogen risk and movement.
+- **Impact**: The results of this project will give a standardized, modular pipeline that researchers can use to effectively look at microbial communities, specifically those in sensitive areas (hospitals and clinics) to asses pathogen risk and movement.
 
 ### 📊 Host-parasite-microbiome interactions in an extreme hyperoxic environment - *Evaluating and understanding the interactions of leech gut microbiome in an extremely hyperoxic environment.*
 - **Status**: 📝 Manuscript in Preparation
@@ -76,15 +76,15 @@ class BioinformaticsStudent:
 
 | Project | Description | Tech | Status |
 |---------|-------------|------|---------|
-| 🧬 **PrismAPI** | Creating easy use API Structures for collecting studies when doing a systematic review. Additionally has resources for Prisma compliance. | Python, R | ![Status](https://img.shields.io/badge/Status-Active-success) |
-| 🔍 **Galaxy MCP** | MCP server for LLM supported interaction with the Galaxy API | FastAPI, Docker, Pydantic, Requests, google-generativeai | ![Status](https://img.shields.io/badge/Status-Beta-yellow) |
-| 📈 **Resources** | Repository of scripts, functions, resources, and notes that I have collected over my work experiences. Curated and organized to be a useful reference for a variety of things. | R, Bash, Python, HTML | ![Status](https://img.shields.io/badge/Status-Beta-yellow) |
+| 🧬 **PrismAPI** | Creating easy use API Structures for collecting studies when doing a systematic review. Additionally has resources for Prisma compliance. | Python, R | ![Status](https://img.shields.io/badge/Status-In%20Development-blue) |
+| 🔍 **Galaxy MCP** | MCP server for LLM supported interaction with the Galaxy API | FastAPI, Docker, Pydantic, Requests, google-generativeai | ![Status](https://img.shields.io/badge/Status-In%20Development-blue) |
+| 📈 **Resources** | Repository of scripts, functions, resources, and notes that I have collected over my work experiences. Curated and organized to be a useful reference for a variety of things. | R, Bash, Python, HTML | ![Status](https://img.shields.io/badge/Status-In%20Development-blue) |
 
 ## 🎯 Fun Projects
 <details>
 <summary>🎮 Click here for the fun stuff!</summary>
-- **📚 D&D Character Information Website**: A Git Pages site to showcase the backstory of one of my DND characters. This project also provided me an introduction to HTML and website building. Future plans are to add more pages and interactive elements.
-- **🃏 MCP for the Scryfall API**: Still a work-in-progress and in the early stages, but to learn MCPs I am making one for the Scryfall API. As a big fan of Magic: The Gathering, this was an entertaining way to learn.
+- **📚 D&D Character Information Website**: A Git Pages site to showcase the backstory of one of my DND characters. This project also provided me an introduction to HTML and website building. Future plans are to add more pages and interactive elements. | ![Status](https://img.shields.io/badge//Status-Stable-green)
+- **🃏 MCP for the Scryfall API**: Still a work-in-progress and in the early stages, but to learn MCPs I am making one for the Scryfall API. As a big fan of Magic: The Gathering, this was an entertaining way to learn. | ![Status](https://img.shields.io/badge/Status-In%20Development-blue)
 
 *"If it's not documented in a README, did it really happen?"* - Ancient Bioinformatics Proverb
 
@@ -94,9 +94,9 @@ class BioinformaticsStudent:
 
 <div align="center">
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=yourusername&show_icons=true&theme=radical)
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=GerardNasser&show_icons=true&theme=radical)
 
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=yourusername&layout=compact&theme=radical)
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=GerardNasser&layout=compact&theme=radical)
 
 </div>
 
