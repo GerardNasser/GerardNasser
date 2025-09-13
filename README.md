@@ -14,7 +14,7 @@ I'm a passionate bioinformatics PhD student at the **University of North Carolin
 class BioinformaticsStudent:
     def __init__(self):
         self.name = "Gerard N."
-        self.current_biology_focus = ["Genomics", "Enviromental Microbiomes", "Hi-C Sequence Analysis"]
+        self.current_biology_focus = ["Genomics", "Environmental Microbiomes", "Hi-C Sequence Analysis"]
         self.current_informatics_focus = ["Pipeline Development", "Data Visualization", "Documentation"]
         self.sleep_dependency = "Minimal"
         self.debugging_skills = "A-Rank"
@@ -35,7 +35,7 @@ class BioinformaticsStudent:
 
 ### Bioinformatics Superpowers 🦸‍♀️
 - **Sequence Analysis**: BLAST, BWA, Bowtie2, Minimap2
-- **Variant Calling**: Samtools/BCFtools
+- **Variant Calling**: Samtools/BCFTools
 - **Genomic Visualization**: IGV, UCSC Genome Browser, AlignmentViewer
 
 ### Data Science & ML
@@ -55,7 +55,7 @@ class BioinformaticsStudent:
 
 ## 🔬 Current Research Projects
 
-### 🧬 Analysis of ESAKPEE Pathogens with Hi-C - Methods Study - *Evaluating Multiple approaches to Hi-C with Microbial Communities to determine the best and most cost effective approach both in wetlab and computationally.*
+### 🧬 Analysis of ESKAPEE Pathogens with Hi-C - Methods Study - *Evaluating Multiple approaches to Hi-C with Microbial Communities to determine the best and most cost effective approach both in wet lab and computationally.*
 - **Status**: 🚀 Active Development
 - **Focus**: ESKAPEE Pathogens and AMR
 - **Tech Stack**: Python, Bash, R, Docker
@@ -78,10 +78,9 @@ class BioinformaticsStudent:
 |---------|-------------|------|---------|
 | 🧬 **PrismAPI** | Creating easy use API Structures for collecting studies when doing a systematic review. Additionally has resources for Prisma compliance. | Python, R | ![Status](https://img.shields.io/badge/Status-Active-success) |
 | 🔍 **Galaxy MCP** | MCP server for LLM supported interaction with the Galaxy API | FastAPI, Docker, Pydantic, Requests, google-generativeai | ![Status](https://img.shields.io/badge/Status-Beta-yellow) |
-| 📈 **Resources** | Repository of scripts, functions, resources, and notes that I have collected over my work experiences. Curated and organized to be a useful reference for a variety of things. | R, Bahs, Python, HTML | ![Status](https://img.shields.io/badge/Status-Beta-yellow) |
+| 📈 **Resources** | Repository of scripts, functions, resources, and notes that I have collected over my work experiences. Curated and organized to be a useful reference for a variety of things. | R, Bash, Python, HTML | ![Status](https://img.shields.io/badge/Status-Beta-yellow) |
 
-## 🎯 Fun Projects (Because Science Should Be Fun!)
-
+## 🎯 Fun Projects
 <details>
 <summary>🎮 Click here for the fun stuff!</summary>
 - **📚 D&D Character Information Website**: A Git Pages site to showcase the backstory of one of my DND characters. This project also provided me an introduction to HTML and website building. Future plans are to add more pages and interactive elements.
