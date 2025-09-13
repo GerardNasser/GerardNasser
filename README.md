@@ -143,7 +143,7 @@ I'm always excited to discuss bioinformatics, collaborate on interesting project
 
 ### 🧬 *"In bioinformatics, every bug is just an undocumented feature waiting to be discovered"*
 
-![Profile Views](https://komarev.com/ghpvc/?username=yourusername&color=blueviolet)
+![Profile Views](https://komarev.com/ghpvc/?username=GerardNasser&color=blueviolet)
 
 ⭐ **If you find my work interesting, don't forget to star some repos!** ⭐
 
