@@ -94,7 +94,7 @@ class BioinformaticsStudent:
 
 <div align="center">
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=GerardNasser&show_icons=true&theme=radical)
+<!-- ![GitHub Stats](https://github-readme-stats.vercel.app/api?username=GerardNasser&show_icons=true&theme=radical) -->
 
 ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=GerardNasser&layout=compact&theme=radical)
 
@@ -149,6 +149,8 @@ I'm always excited to discuss bioinformatics, collaborate on interesting project
 </div>
 
 ## 📚 Recent Blog Posts & Publications
+
+Coming Soon
 
 <!-- BLOG-POST-LIST:START
 - [Blog Post Title 1](link-to-post)
