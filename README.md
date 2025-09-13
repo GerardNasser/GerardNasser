@@ -76,7 +76,7 @@ class BioinformaticsStudent:
 
 | Project | Description | Tech | Status |
 |---------|-------------|------|---------|
-| 🧬 **PrismAPI** | Creating easy use API Structures for collecting studies when doing a systematic review. Additionally has resources for Prisma compliance. | Python, R | ![Status](https://img.shields.io/badge/Status-In%20Development-blue) |
+| 🧬 **PrismAPI** | Creating easy-use API Structures for collecting studies when doing a systematic review. Additionally has resources for Prisma compliance. | Python, R | ![Status](https://img.shields.io/badge/Status-In%20Development-blue) |
 | 🔍 **Galaxy MCP** | MCP server for LLM supported interaction with the Galaxy API | FastAPI, Docker, Pydantic, Requests, google-generativeai | ![Status](https://img.shields.io/badge/Status-In%20Development-blue) |
 | 📈 **Resources** | Repository of scripts, functions, resources, and notes that I have collected over my work experiences. Curated and organized to be a useful reference for a variety of things. | R, Bash, Python, HTML | ![Status](https://img.shields.io/badge/Status-In%20Development-blue) |
 
