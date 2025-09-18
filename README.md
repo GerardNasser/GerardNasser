@@ -83,8 +83,10 @@ class BioinformaticsStudent:
 ## 🎯 Fun Projects
 <details>
 <summary>🎮 Click here for the fun stuff!</summary>
-- **📚 D&D Character Information Website**: A Git Pages site to showcase the backstory of one of my DND characters. This project also provided me an introduction to HTML and website building. Future plans are to add more pages and interactive elements. <img src="https://img.shields.io/badge/Status-Stable-green" alt="Status">
-- **🃏 MCP for the Scryfall API**: Still a work-in-progress and in the early stages, but to learn MCPs I am making one for the Scryfall API. As a big fan of Magic: The Gathering, this was an entertaining way to learn. <img src="https://img.shields.io/badge/Status-In%20Development-blue" alt="Status">
+| Project | Description | Status |
+|---------|-------------|---------|
+| **📚 D&D Character Information Website** | A Git Pages site to showcase the backstory of one of my DND characters. This project also provided me an introduction to HTML and website building. Future plans are to add more pages and interactive elements. | <img src="https://img.shields.io/badge/Status-Stable-green" alt="Status"> |
+| **🃏 MCP for the Scryfall API**: Still a work-in-progress and in the early stages, but to learn MCPs I am making one for the Scryfall API. As a big fan of Magic: The Gathering, this was an entertaining way to learn. | <img src="https://img.shields.io/badge/Status-In%20Development-blue" alt="Status"> |
 
 *"If it's not documented in a README, did it really happen?"* - Ancient Bioinformatics Proverb
 
