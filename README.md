@@ -8,7 +8,7 @@
 
 ## 🔬 About Me
 
-I'm a passionate bioinformatics PhD student at the **University of North Carolina at Charlotte (UNCC)**, where I spend my days (and nights) turning biological mysteries into computational solutions. When I'm not working with genomic data or debugging pipelines, you can find me exploring the intersection of biology, data science, software engineering, and AI.
+I'm a passionate bioinformatics PhD student at the **University of North Carolina at Charlotte (UNCC)**, where I spend my days (and nights) making computational solutions for biological inquiries. When I'm not working with genomic data or debugging pipelines, you can find me exploring the intersection of biology, data science, software engineering, and AI.
 
 ```python
 class BioinformaticsStudent:
