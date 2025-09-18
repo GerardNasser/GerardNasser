@@ -117,7 +117,7 @@ class BioinformaticsStudent:
 </div>
 
 ### 🌟 My Superpowers Include:
-- **Data Wrangling**: I can make messy biological data behave
+- **Data Wrangling**: I can make messy biological data look nice
 - **Pipeline Engineering**: Building robust, scalable analysis workflows
 - **Cross-functional Collaboration**: Bridging the gap between wet lab and dry lab
 - **Problem Solving**: If it's broken, I'll figure out why (and fix it)
