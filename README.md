@@ -142,7 +142,7 @@
 <img src="https://img.shields.io/badge/CWL-B5314C?style=for-the-badge&labelColor=0d1117" alt="CWL"/>
 <img src="https://img.shields.io/badge/SLURM%20%2F%20PBS%20%2F%20SGE%20%2F%20LSF-2A5C9A?style=for-the-badge&labelColor=0d1117" alt="HPC schedulers"/>
 
-<sub><em>These are export targets produced by my Bioinformatic Scripting Application — not infrastructure I claim to run day to day.</em></sub>
+<sub><em>These are export targets produced by my Bioinformatic Scripting Application.</em></sub>
 
 </div>
 
