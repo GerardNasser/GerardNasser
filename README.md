@@ -7,13 +7,13 @@
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,30:1a0b2e,65:7C3AED,100:00D9FF&height=280&section=header&text=Gerard%20Nasser&fontSize=72&fontColor=ffffff&fontAlignY=38&fontAlign=50&animation=fadeIn" width="100%" alt="Gerard Nasser banner"/>
 
 <a href="https://github.com/GerardNasser">
-  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=22&duration=2800&pause=900&color=00D9FF&center=true&vCenter=true&width=640&height=48&lines=Bioinformatics+PhD+Student+%E2%80%A2+UNC+Charlotte;Genomics+%E2%80%A2+Microbiomes+%E2%80%A2+Pipelines;Building+at+the+wet-lab+%2F+dry-lab+boundary" alt="Roles"/>
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=22&duration=2800&pause=900&color=00D9FF&center=true&vCenter=true&width=640&height=48&lines=Bioinformatics+PhD+Candidate+%E2%80%A2+UNC+Charlotte;Genomics+%E2%80%A2+Microbiomes+%E2%80%A2+Pipelines;Building+at+the+wet-lab+%2F+dry-lab+boundary" alt="Roles"/>
 </a>
 
 <br/>
 <br/>
 
-<img src="https://img.shields.io/badge/PhD%20Student-00D9FF?style=for-the-badge&labelColor=0d1117" alt="PhD Candidate"/>
+<img src="https://img.shields.io/badge/PhD%20Candidate-00D9FF?style=for-the-badge&labelColor=0d1117" alt="PhD Candidate"/>
 <img src="https://img.shields.io/badge/UNC%20Charlotte-7C3AED?style=for-the-badge&labelColor=0d1117" alt="UNC Charlotte"/>
 <img src="https://img.shields.io/badge/Open%20to%20Collaboration-FF006E?style=for-the-badge&labelColor=0d1117" alt="Open to Collaboration"/>
 
