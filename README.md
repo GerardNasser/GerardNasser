@@ -13,7 +13,7 @@
 <br/>
 <br/>
 
-<img src="https://img.shields.io/badge/PhD%20Student-00D9FF?style=for-the-badge&labelColor=0d1117" alt="PhD Student"/>
+<img src="https://img.shields.io/badge/PhD%20Student-00D9FF?style=for-the-badge&labelColor=0d1117" alt="PhD Candidate"/>
 <img src="https://img.shields.io/badge/UNC%20Charlotte-7C3AED?style=for-the-badge&labelColor=0d1117" alt="UNC Charlotte"/>
 <img src="https://img.shields.io/badge/Open%20to%20Collaboration-FF006E?style=for-the-badge&labelColor=0d1117" alt="Open to Collaboration"/>
 
