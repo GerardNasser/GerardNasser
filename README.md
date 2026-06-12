@@ -33,7 +33,7 @@
 
 ## About
 
-> **Bioinformatics PhD student at UNC Charlotte** building reproducible computational tools for genomic and microbiome research. I work at the intersection of biology, data science, and software engineering — turning raw sequencing data into pipelines other people can actually use.
+> **Bioinformatics PhD candidate at UNC Charlotte** building reproducible computational tools for genomic and microbiome research. I work at the intersection of biology, data science, and software engineering — turning raw sequencing data into pipelines other people can actually use.
 
 <br/>
 
