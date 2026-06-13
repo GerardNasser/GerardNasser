@@ -1,5 +1,4 @@
 ---
-import { site } from '../../data/site';
 import about from '../../data/about.json';
 
 const columns = about.columns;
@@ -25,15 +24,6 @@ const columns = about.columns;
         ))
       }
     </div>
-
-    <p data-reveal>
-      <a class="about__cv" href={`${import.meta.env.BASE_URL}${site.cvUrl}`}>
-        Download CV
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-          <path d="M7 1v9M3 6l4 4 4-4M1 13h12" stroke="currentColor" stroke-width="1.5" />
-        </svg>
-      </a>
-    </p>
   </div>
 </section>
 
@@ -56,17 +46,6 @@ const columns = about.columns;
     border-bottom: 1px solid var(--border);
     font-size: var(--fs-1);
   }
-  .about__cv {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--sp-1);
-    padding: var(--sp-1) var(--sp-3);
-    border: 1px solid var(--border-bright);
-    border-radius: var(--radius);
-    color: var(--fg);
-    transition: border-color 0.2s var(--ease-out), background 0.2s var(--ease-out);
-  }
-  .about__cv:hover { border-color: var(--accent); background: var(--bg-raise); }
   @media (max-width: 720px) {
     .about__grid { grid-template-columns: 1fr; gap: var(--sp-3); }
   }

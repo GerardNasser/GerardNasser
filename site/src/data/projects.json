@@ -46,15 +46,6 @@
       "base": "a"
     },
     {
-      "name": "CD300",
-      "category": "research",
-      "blurb": "Comparative-genomics pipeline that finds CD300 immune-gene orthologs across vertebrates by combining local BLAST searches with NCBI, Ensembl and ITIS taxonomy APIs.",
-      "stack": ["Python", "Bash", "Biopython"],
-      "status": "active",
-      "href": "https://github.com/GerardNasser/CD300",
-      "base": "a"
-    },
-    {
       "name": "Alestur",
       "category": "side",
       "blurb": "A GitHub Pages site for a homebrew D&D campaign — interactive character profiles, family tree and backstory. A playground for modern CSS.",

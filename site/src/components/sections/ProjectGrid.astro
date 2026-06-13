@@ -7,8 +7,9 @@ interface Props {
   title: string;
   lede?: string;
   items: Project[];
+  emptyText?: string;
 }
-const { id, eyebrow, title, lede, items } = Astro.props;
+const { id, eyebrow, title, lede, items, emptyText = 'Nothing here yet.' } = Astro.props;
 const statusLabel: Record<string, string> = { active: 'active', stable: 'stable', early: 'early' };
 ---
 
@@ -20,7 +21,7 @@ const statusLabel: Record<string, string> = { active: 'active', stable: 'stable'
 
     {
       items.length === 0 ? (
-        <p class="section__lede" data-reveal style="opacity:.7">Nothing here yet.</p>
+        <p class="section__lede" data-reveal style="opacity:.7">{emptyText}</p>
       ) : (
         <div class="proj__grid">
           {items.map((p) => (

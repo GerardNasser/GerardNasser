@@ -7,7 +7,6 @@ export const site = {
   tagline: siteData.tagline,
   blurb: siteData.blurb,
   email: siteData.email,
-  cvUrl: siteData.cvUrl,
 };
 
 export const socials = siteData.socials;

@@ -1,0 +1,10 @@
+# OS
+.DS_Store
+
+# Brainstorm working dir (not part of the site)
+.superpowers/
+
+# Node / build output (also covered by site/.gitignore)
+node_modules/
+dist/
+.astro/
