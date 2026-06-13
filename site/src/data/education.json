@@ -1,0 +1,23 @@
+{
+  "title": "Education.",
+  "items": [
+    {
+      "degree": "Ph.D. Bioinformatics & Computational Biology",
+      "school": "UNC Charlotte",
+      "year": "Present",
+      "note": ""
+    },
+    {
+      "degree": "M.S. Biology",
+      "school": "Montclair State University",
+      "year": "2019",
+      "note": "Thesis: Effects of Differing Environmental Conditions on Bacteriophage Jenika"
+    },
+    {
+      "degree": "B.S. Biology (Minor: Psychology)",
+      "school": "Montclair State University",
+      "year": "2015",
+      "note": ""
+    }
+  ]
+}

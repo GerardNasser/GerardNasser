@@ -1,0 +1,56 @@
+---
+import { site, socials } from '../../data/site';
+---
+
+<section class="section contact" id="contact">
+  <div class="container">
+    <p class="section__eyebrow" data-reveal>Contact</p>
+    <h2 class="contact__title" data-reveal>Let&rsquo;s build something reproducible.</h2>
+    <p class="section__lede" data-reveal>
+      Open to collaboration on bioinformatics tools, genomics pipelines, and microbiome research.
+    </p>
+
+    <a class="contact__email" href={`mailto:${site.email}`} data-reveal>{site.email}</a>
+
+    <ul class="contact__socials" data-reveal>
+      {
+        socials.map((s) => (
+          <li>
+            <a href={s.href} target={s.href.startsWith('http') ? '_blank' : undefined} rel="noopener">
+              {s.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .contact { text-align: center; }
+  .contact__title {
+    font-size: var(--fs-5);
+    margin-bottom: var(--sp-3);
+  }
+  .contact .section__lede { margin-inline: auto; }
+  .contact__email {
+    display: inline-block;
+    margin-block: var(--sp-4) var(--sp-3);
+    font-size: clamp(1.25rem, 4vw, 2rem);
+    color: var(--fg);
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 4px;
+  }
+  .contact__email:hover { color: var(--accent); }
+  .contact__socials {
+    list-style: none;
+    display: flex;
+    gap: var(--sp-3);
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+  }
+  .contact__socials a { color: var(--fg-soft); }
+  .contact__socials a:hover { color: var(--accent); }
+</style>

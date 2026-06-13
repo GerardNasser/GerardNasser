@@ -1,0 +1,55 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroSection from '../components/hero/HeroSection.astro';
+import About from '../components/sections/About.astro';
+import Education from '../components/sections/Education.astro';
+import GitHub from '../components/sections/GitHub.astro';
+import ProjectGrid from '../components/sections/ProjectGrid.astro';
+import Genomes from '../components/sections/Genomes.astro';
+import Talks from '../components/sections/Talks.astro';
+import Teaching from '../components/sections/Teaching.astro';
+import Awards from '../components/sections/Awards.astro';
+import Contact from '../components/sections/Contact.astro';
+import { projectsByCategory } from '../data/projects';
+
+const apps = projectsByCategory('app');
+const research = projectsByCategory('research');
+const side = projectsByCategory('side');
+---
+
+<Base>
+  <HeroSection />
+  <About />
+  <Education />
+  <GitHub />
+  <ProjectGrid
+    id="applications"
+    eyebrow="Stand-alone applications"
+    title="Tools you can actually run."
+    lede="Finished, end-user software — desktop apps and CLI packages — built to install and use, not just read."
+    items={apps}
+  />
+  <ProjectGrid
+    id="projects"
+    eyebrow="Research & career"
+    title="Pipelines & paper code."
+    lede="Repositories tied to research questions and academic work."
+    items={research}
+  />
+  <ProjectGrid
+    id="side"
+    eyebrow="Side quests"
+    title="For the fun of it."
+    lede="Things I built outside of work — playgrounds, experiments, and the occasional D&D rabbit hole."
+    items={side}
+  />
+  <Genomes />
+  <Talks />
+  <Teaching />
+  <Awards />
+  <Contact />
+</Base>
+
+<script>
+  import '../lib/scroll.ts';
+</script>

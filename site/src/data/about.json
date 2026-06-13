@@ -1,0 +1,18 @@
+{
+  "title": "At the wet-lab / dry-lab boundary.",
+  "lede": "Bioinformatics PhD researcher at UNC Charlotte and affiliate of the NSF-funded PreMiEr (Precision Microbiome Engineering) Research Center. I work where computational biology meets public health — developing Hi-C metagenomic methods that link antimicrobial-resistance genes to their bacterial and plasmid hosts in built and wastewater environments, turning large-scale sequencing data into actionable insight on how resistance spreads and persists.",
+  "columns": [
+    {
+      "head": "Researching",
+      "items": ["Hi-C metagenomics for resistance genes", "AMR in built & wastewater environments", "Linking plasmids to their bacterial hosts"]
+    },
+    {
+      "head": "Building",
+      "items": ["Reproducible bioinformatics pipelines", "Cross-platform research desktop tools", "Systematic-review & literature tooling"]
+    },
+    {
+      "head": "Background",
+      "items": ["Trained in microbiology & wet-lab work", "Bacteriophage genomics (SEA-PHAGES)", "Wet-lab ↔ dry-lab across the stack"]
+    }
+  ]
+}

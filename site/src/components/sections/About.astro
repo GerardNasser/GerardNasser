@@ -1,0 +1,73 @@
+---
+import { site } from '../../data/site';
+import about from '../../data/about.json';
+
+const columns = about.columns;
+---
+
+<section class="section" id="about">
+  <div class="container">
+    <p class="section__eyebrow" data-reveal>About</p>
+    <h2 class="section__title" data-reveal>{about.title}</h2>
+    <p class="section__lede" data-reveal>{about.lede}</p>
+
+    <div class="about__grid">
+      {
+        columns.map((col) => (
+          <div class="about__col" data-reveal>
+            <h3 class="about__head">{col.head}</h3>
+            <ul>
+              {col.items.map((i) => (
+                <li>{i}</li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+
+    <p data-reveal>
+      <a class="about__cv" href={`${import.meta.env.BASE_URL}${site.cvUrl}`}>
+        Download CV
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <path d="M7 1v9M3 6l4 4 4-4M1 13h12" stroke="currentColor" stroke-width="1.5" />
+        </svg>
+      </a>
+    </p>
+  </div>
+</section>
+
+<style>
+  .about__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-4);
+    margin-block: var(--sp-5);
+  }
+  .about__head {
+    font-size: var(--fs-1);
+    color: var(--accent);
+    margin-bottom: var(--sp-2);
+  }
+  .about__col ul { list-style: none; padding: 0; margin: 0; }
+  .about__col li {
+    color: var(--fg-soft);
+    padding: var(--sp-1) 0;
+    border-bottom: 1px solid var(--border);
+    font-size: var(--fs-1);
+  }
+  .about__cv {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-1);
+    padding: var(--sp-1) var(--sp-3);
+    border: 1px solid var(--border-bright);
+    border-radius: var(--radius);
+    color: var(--fg);
+    transition: border-color 0.2s var(--ease-out), background 0.2s var(--ease-out);
+  }
+  .about__cv:hover { border-color: var(--accent); background: var(--bg-raise); }
+  @media (max-width: 720px) {
+    .about__grid { grid-template-columns: 1fr; gap: var(--sp-3); }
+  }
+</style>

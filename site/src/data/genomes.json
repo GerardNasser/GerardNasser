@@ -1,0 +1,12 @@
+{
+  "title": "Genome submissions.",
+  "lede": "Complete bacteriophage genomes I co-authored and deposited to NCBI GenBank through SEA-PHAGES and related comparative-genomics work.",
+  "items": [
+    { "name": "Mycobacterium phage BreSam8", "accession": "MH576949.1", "year": 2018, "url": "https://www.ncbi.nlm.nih.gov/nuccore/MH576949.1" },
+    { "name": "Mycobacterium phage Gator", "accession": "MN096361.1", "year": 2019, "url": "https://www.ncbi.nlm.nih.gov/nuccore/MN096361.1" },
+    { "name": "Mycobacterium phage LifeSavor", "accession": "MG872839.1", "year": 2018, "url": "https://www.ncbi.nlm.nih.gov/nuccore/MG872839.1" },
+    { "name": "Arthrobacter phage Abidatro", "accession": "MF140397.1", "year": 2017, "url": "https://www.ncbi.nlm.nih.gov/nuccore/MF140397.1" },
+    { "name": "Arthrobacter phage Tenno", "accession": "MH825711.1", "year": 2018, "url": "https://www.ncbi.nlm.nih.gov/nuccore/MH825711.1" },
+    { "name": "Arthrobacter phage Linus", "accession": "MN204503.1", "year": 2019, "url": "https://www.ncbi.nlm.nih.gov/nuccore/MN204503.1" }
+  ]
+}

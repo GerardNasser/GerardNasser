@@ -1,0 +1,74 @@
+---
+import teaching from '../../data/teaching.json';
+const experience = teaching.experience as Array<{
+  role: string;
+  org: string;
+  period: string;
+  detail: string;
+}>;
+const items = teaching.items;
+---
+
+<section class="section" id="teaching">
+  <div class="container">
+    <p class="section__eyebrow" data-reveal>Teaching &amp; outreach</p>
+    <h2 class="section__title" data-reveal>{teaching.title}</h2>
+    <p class="section__lede" data-reveal>{teaching.lede}</p>
+
+    {
+      experience.length > 0 && (
+        <ol class="teach__exp">
+          {experience.map((x) => (
+            <li class="teach__role" data-reveal>
+              <div class="teach__role-head">
+                <h3 class="teach__role-title">{x.role}</h3>
+                <span class="teach__period">{x.period}</span>
+              </div>
+              <p class="teach__org">{x.org}</p>
+              <p class="teach__detail">{x.detail}</p>
+            </li>
+          ))}
+        </ol>
+      )
+    }
+
+    <h3 class="teach__sub" data-reveal>Materials</h3>
+    <div class="teach__grid">
+      {
+        items.map((it) => (
+          <a class="teach" href={it.href} target="_blank" rel="noopener" data-reveal>
+            <span class="teach__tag">{it.tag}</span>
+            <h3 class="teach__title">{it.title}</h3>
+            <p class="teach__desc">{it.desc}</p>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .teach__exp { list-style: none; padding: 0; margin: 0 0 var(--sp-5); display: grid; gap: var(--sp-3); }
+  .teach__role { padding-bottom: var(--sp-3); border-bottom: 1px solid var(--border); }
+  .teach__role-head { display: flex; align-items: baseline; justify-content: space-between; gap: var(--sp-2); flex-wrap: wrap; }
+  .teach__role-title { font-size: var(--fs-4); }
+  .teach__period { color: var(--fg-faint); font-size: var(--fs-1); font-variant-numeric: tabular-nums; }
+  .teach__org { color: var(--accent); font-size: var(--fs-1); margin: var(--sp-1) 0 0; }
+  .teach__detail { color: var(--fg-soft); font-size: var(--fs-1); margin: var(--sp-1) 0 0; }
+
+  .teach__sub { font-size: var(--fs-1); color: var(--accent); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: var(--sp-2); }
+  .teach__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: var(--sp-3); }
+  .teach {
+    display: block;
+    padding: var(--sp-3);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    color: var(--fg);
+    transition: border-color 0.25s var(--ease-out), transform 0.25s var(--ease-out);
+  }
+  .teach:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .teach__tag { font-size: var(--fs-0); text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent-2); }
+  .teach__title { font-size: var(--fs-4); margin: var(--sp-1) 0 var(--sp-2); }
+  .teach__desc { color: var(--fg-soft); font-size: var(--fs-1); margin: 0; }
+</style>

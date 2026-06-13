@@ -1,0 +1,32 @@
+{
+  "title": "Teaching & outreach.",
+  "lede": "Years in the lab classroom — and a commitment to bringing people from first principles to real bioinformatics workflows.",
+  "experience": [
+    {
+      "role": "Graduate Teaching Assistant",
+      "org": "Department of Bioinformatics & Genomics, UNC Charlotte",
+      "period": "Aug 2023 – Present",
+      "detail": "Teaching assistant in the bioinformatics & genomics graduate program; also mentor two master's students through computational analysis and interpretation."
+    },
+    {
+      "role": "Lead Graduate Assistant",
+      "org": "Department of Biology, Montclair State University",
+      "period": "Aug 2019 – May 2021",
+      "detail": "Oversaw lab courses and a team of graduate TAs across the department, coordinated lab scheduling, and designed teaching techniques and instructional materials for undergraduate labs."
+    },
+    {
+      "role": "Teaching Assistant",
+      "org": "Department of Biology, Montclair State University",
+      "period": "Jan 2016 – May 2019",
+      "detail": "Taught undergraduate labs across Principles of Biology, Microbiology, and SEA-PHAGES; helped expand the SEA-PHAGES genome-sequencing curriculum in collaboration with HHMI."
+    }
+  ],
+  "items": [
+    {
+      "title": "silico",
+      "tag": "Course",
+      "desc": "A terminal course teaching programming and applied bioinformatics across 14 units — Python basics through FASTQ pipelines and a codon-usage capstone.",
+      "href": "https://github.com/GerardNasser/Coding-and-Bioinformatics-Basics"
+    }
+  ]
+}

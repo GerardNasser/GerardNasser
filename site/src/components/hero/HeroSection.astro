@@ -1,0 +1,249 @@
+---
+import { site } from '../../data/site';
+
+const bgCode = [
+  '$ samtools sort -@8 -o sorted.bam input.bam',
+  "gc = lambda s: (s.count('G')+s.count('C'))/len(s)",
+  "nextflow run main.nf -profile slurm --reads '*_{1,2}.fq.gz'",
+  'bwa mem ref.fa R1.fq R2.fq | samtools view -b -',
+];
+---
+
+<section class="hero" id="top" data-hero>
+  <!-- background bioinformatics code (decorative) -->
+  <div class="hero__bg" aria-hidden="true">
+    {bgCode.map((line, i) => <span style={`--i:${i}`}>{line}</span>)}
+  </div>
+
+  <!-- live WebGL target -->
+  <canvas class="hero__canvas" aria-hidden="true"></canvas>
+
+  <!-- static fallback: shown until/unless the canvas goes live -->
+  <svg class="hero__poster" viewBox="0 0 600 200" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+    <g fill="none" stroke-width="2.5">
+      <path d="M20,100 C110,30 190,30 300,100 S490,170 580,100" stroke="#4f9fd6" opacity="0.8" />
+      <path d="M20,100 C110,170 190,170 300,100 S490,30 580,100" stroke="#4f9fd6" opacity="0.8" />
+    </g>
+    <g>
+      <circle cx="130" cy="58" r="6" fill="#3df06b" /><circle cx="130" cy="142" r="6" fill="#ff4d6d" />
+      <circle cx="300" cy="100" r="6" fill="#ffc83d" /><circle cx="470" cy="58" r="6" fill="#28e0f5" />
+      <circle cx="470" cy="142" r="6" fill="#3df06b" />
+    </g>
+  </svg>
+
+  <div class="hero__overlay container">
+    <div class="hero__panel">
+      <p class="hero__eyebrow">{site.role} · UNC Charlotte</p>
+      <h1 class="hero__name">{site.name}</h1>
+      <p class="hero__tagline">{site.tagline}</p>
+      <ul class="hero__legend" aria-hidden="true">
+        <li><i style="background:var(--nt-a)"></i>A</li>
+        <li><i style="background:var(--nt-t)"></i>T</li>
+        <li><i style="background:var(--nt-g)"></i>G</li>
+        <li><i style="background:var(--nt-c)"></i>C</li>
+      </ul>
+    </div>
+  </div>
+
+  <a class="hero__scroll" href="#about" aria-label="Scroll to content">
+    <span>scroll</span>
+    <svg width="14" height="20" viewBox="0 0 14 20" fill="none" aria-hidden="true">
+      <path d="M7 1v17M1 12l6 6 6-6" stroke="currentColor" stroke-width="1.6" />
+    </svg>
+  </a>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 100svh;
+    display: grid;
+    align-items: center;
+    overflow: hidden;
+    background: radial-gradient(120% 150% at 50% -15%, #0e1726 0%, #070a12 55%, #04060c 100%);
+  }
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: var(--z-bg);
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .hero__bg span {
+    position: absolute;
+    left: -45%;
+    top: calc(14% + var(--i) * 22%);
+    white-space: nowrap;
+    font-size: var(--fs-1);
+    color: #2a8f57;
+    opacity: 0.32;
+    filter: blur(0.6px);
+    animation: drift calc(16s + var(--i) * 1.5s) linear infinite;
+    animation-delay: calc(var(--i) * 1.4s);
+  }
+  @keyframes drift {
+    0% { left: -45%; opacity: 0; }
+    12% { opacity: 0.32; }
+    88% { opacity: 0.32; }
+    100% { left: 108%; opacity: 0; }
+  }
+  .hero__canvas {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  .hero__poster {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    margin: auto;
+    width: min(96%, 1100px);
+    height: auto;
+    opacity: 0.9;
+  }
+  /* once the canvas is live, drop the static poster */
+  .hero[data-live] .hero__poster { display: none; }
+
+  .hero__overlay {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+  }
+  /* translucent frosted panel keeps the text legible over the animated helix */
+  .hero__panel {
+    display: inline-block;
+    max-width: 100%;
+    padding: var(--sp-4) clamp(var(--sp-3), 7vw, var(--sp-6));
+    border-radius: var(--radius-lg);
+    background: color-mix(in srgb, var(--bg) 52%, transparent);
+    -webkit-backdrop-filter: blur(12px) saturate(115%);
+    backdrop-filter: blur(12px) saturate(115%);
+    border: 1px solid color-mix(in srgb, #ffffff 9%, transparent);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.4);
+  }
+  /* fallback for browsers without backdrop-filter: lean on a more opaque bg */
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .hero__panel { background: color-mix(in srgb, var(--bg) 78%, transparent); }
+  }
+  .hero__eyebrow {
+    font-size: var(--fs-0);
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 var(--sp-2);
+  }
+  .hero__name {
+    font-size: var(--fs-6);
+    text-shadow: 0 0 30px rgba(40, 224, 245, 0.35);
+    margin: 0;
+  }
+  .hero__tagline {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--fg-soft);
+    font-size: var(--fs-3);
+    margin: var(--sp-2) 0 0;
+  }
+  .hero__legend {
+    list-style: none;
+    display: flex;
+    gap: var(--sp-2);
+    justify-content: center;
+    padding: 0;
+    margin: var(--sp-3) 0 0;
+    font-size: var(--fs-0);
+    color: var(--fg-faint);
+  }
+  .hero__legend li { display: inline-flex; align-items: center; gap: 5px; }
+  .hero__legend i { width: 9px; height: 9px; border-radius: 50%; }
+
+  .hero__scroll {
+    position: absolute;
+    left: 50%;
+    bottom: calc(var(--sp-7) + env(safe-area-inset-bottom, 0px));
+    transform: translateX(-50%);
+    z-index: 2;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: var(--accent-2);
+    font-size: var(--fs-0);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .hero__scroll svg { animation: bob 1.8s ease-in-out infinite; }
+  @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
+
+  /* tagline + legend + scroll get the post-build "resolve" — driven by the
+     actual helix build (data-built), not a fixed wall-clock delay. The name
+     stays painted immediately to protect LCP. */
+  .js .hero__tagline,
+  .js .hero__legend,
+  .js .hero__scroll { opacity: 0; transition: opacity 0.9s var(--ease-out); }
+  .js .hero[data-built] .hero__tagline { opacity: 1; }
+  .js .hero[data-built] .hero__legend { opacity: 1; transition-delay: 0.2s; }
+  .js .hero[data-built] .hero__scroll { opacity: 1; transition-delay: 0.4s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero__bg span { animation: none; opacity: 0.28; left: 8%; }
+    .hero__scroll svg { animation: none; }
+    .js .hero__tagline,
+    .js .hero__legend,
+    .js .hero__scroll { opacity: 1; transition: none; }
+  }
+</style>
+
+<script>
+  const hero = document.querySelector<HTMLElement>('[data-hero]');
+  const canvas = hero?.querySelector<HTMLCanvasElement>('.hero__canvas');
+  const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  const hasWebGL = (() => {
+    try {
+      const c = document.createElement('canvas');
+      return !!(window.WebGLRenderingContext && (c.getContext('webgl') || c.getContext('experimental-webgl')));
+    } catch {
+      return false;
+    }
+  })();
+
+  const reveal = () => hero?.setAttribute('data-built', '');
+
+  if (hero && canvas && !mq.matches && hasWebGL) {
+    // reveal the hero text when the helix build actually finishes
+    canvas.addEventListener('helix:built', reveal, { once: true });
+    let controller: { destroy: () => void } | null = null;
+
+    const start = () =>
+      import('./helix')
+        .then((m) => {
+          controller = m.initHelix(canvas);
+          hero.dataset.live = '';
+        })
+        .catch(reveal); // import failed: still show the text over the poster
+
+    if ('requestIdleCallback' in window) {
+      (window as Window & typeof globalThis).requestIdleCallback(start, { timeout: 1500 });
+    } else {
+      setTimeout(start, 200);
+    }
+    // safety net: never leave the text hidden (e.g. user scrolls away mid-build)
+    setTimeout(reveal, 9000);
+
+    // honor a live OS reduced-motion toggle
+    mq.addEventListener('change', (e) => {
+      if (e.matches && controller) {
+        controller.destroy();
+        controller = null;
+        hero.removeAttribute('data-live');
+        reveal();
+      }
+    });
+  } else {
+    reveal(); // reduced-motion or no WebGL: show the text immediately
+  }
+</script>

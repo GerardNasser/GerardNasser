@@ -1,0 +1,105 @@
+---
+import type { Project } from '../../data/projects';
+
+interface Props {
+  id: string;
+  eyebrow: string;
+  title: string;
+  lede?: string;
+  items: Project[];
+}
+const { id, eyebrow, title, lede, items } = Astro.props;
+const statusLabel: Record<string, string> = { active: 'active', stable: 'stable', early: 'early' };
+---
+
+<section class="section" id={id}>
+  <div class="container">
+    <p class="section__eyebrow" data-reveal>{eyebrow}</p>
+    <h2 class="section__title" data-reveal set:html={title} />
+    {lede && <p class="section__lede" data-reveal>{lede}</p>}
+
+    {
+      items.length === 0 ? (
+        <p class="section__lede" data-reveal style="opacity:.7">Nothing here yet.</p>
+      ) : (
+        <div class="proj__grid">
+          {items.map((p) => (
+            <a class="proj" href={p.href} target="_blank" rel="noopener" data-reveal style={`--accent:var(--nt-${p.base ?? 'c'})`}>
+              <div class="proj__top">
+                <h3 class="proj__name">{p.name}</h3>
+                <span class={`proj__status proj__status--${p.status}`}>{statusLabel[p.status]}</span>
+              </div>
+              <p class="proj__blurb">{p.blurb}</p>
+              <ul class="proj__stack">
+                {p.stack.map((s) => (
+                  <li>{s}</li>
+                ))}
+              </ul>
+            </a>
+          ))}
+        </div>
+      )
+    }
+  </div>
+</section>
+
+<style>
+  .proj__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--sp-3);
+  }
+  .proj {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-2);
+    padding: var(--sp-3);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    color: var(--fg);
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.25s var(--ease-out), transform 0.25s var(--ease-out);
+  }
+  .proj::before {
+    content: '';
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 3px;
+    background: var(--accent);
+    opacity: 0.5;
+    transition: opacity 0.25s var(--ease-out);
+  }
+  .proj:hover {
+    border-color: var(--border-bright);
+    transform: translateY(-3px);
+  }
+  .proj:hover::before { opacity: 1; }
+  .proj__top { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-2); }
+  .proj__name { font-size: var(--fs-4); }
+  .proj__status {
+    font-size: var(--fs-0);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 999px;
+    border: 1px solid currentColor;
+    white-space: nowrap;
+  }
+  .proj__status--active { color: var(--nt-c); }
+  .proj__status--stable { color: var(--nt-g); }
+  .proj__status--early { color: var(--nt-t); }
+  .proj__blurb { color: var(--fg-soft); font-size: var(--fs-1); margin: 0; flex: 1; }
+  .proj__stack { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; padding: 0; margin: 0; }
+  .proj__stack li {
+    font-size: var(--fs-0);
+    color: var(--fg-faint);
+    padding: 2px 8px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+  }
+  @media (max-width: 720px) {
+    .proj__grid { grid-template-columns: 1fr; }
+  }
+</style>

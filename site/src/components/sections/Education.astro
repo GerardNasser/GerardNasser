@@ -1,0 +1,37 @@
+---
+import education from '../../data/education.json';
+---
+
+<section class="section" id="education">
+  <div class="container">
+    <p class="section__eyebrow" data-reveal>Education</p>
+    <h2 class="section__title" data-reveal>{education.title}</h2>
+
+    <ol class="edu__list">
+      {
+        education.items.map((e) => (
+          <li class="edu" data-reveal>
+            <span class="edu__year">{e.year}</span>
+            <div>
+              <h3 class="edu__degree">{e.degree}</h3>
+              <p class="edu__school">{e.school}</p>
+              {e.note && <p class="edu__note">{e.note}</p>}
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
+
+<style>
+  .edu__list { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--sp-3); }
+  .edu { display: grid; grid-template-columns: 6rem 1fr; gap: var(--sp-2); padding-bottom: var(--sp-3); border-bottom: 1px solid var(--border); }
+  .edu__year { color: var(--accent); font-variant-numeric: tabular-nums; }
+  .edu__degree { font-size: var(--fs-4); }
+  .edu__school { color: var(--fg-soft); font-size: var(--fs-1); margin: var(--sp-1) 0 0; }
+  .edu__note { color: var(--fg-faint); font-size: var(--fs-1); font-style: italic; margin: var(--sp-1) 0 0; }
+  @media (max-width: 720px) {
+    .edu { grid-template-columns: 1fr; gap: var(--sp-1); }
+  }
+</style>

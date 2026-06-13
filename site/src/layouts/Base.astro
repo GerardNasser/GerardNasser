@@ -1,0 +1,84 @@
+---
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import { site } from '../data/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+const {
+  title = `${site.name} — ${site.role}`,
+  description = site.blurb,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href={`${import.meta.env.BASE_URL}favicon.svg`} type="image/svg+xml" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="color-scheme" content="dark" />
+
+    <!-- Fonts: preconnect, then load JetBrains Mono + Spectral non-render-blocking
+         (swap to avoid FOIT; noscript fallback for no-JS) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Spectral:ital,wght@0,400;0,500;1,400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Spectral:ital,wght@0,400;0,500;1,400&display=swap"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Spectral:ital,wght@0,400;0,500;1,400&display=swap"
+      />
+    </noscript>
+
+    <!-- flag JS early so scroll-reveal can hide-then-reveal without a flash -->
+    <script is:inline>
+      document.documentElement.classList.add('js');
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <Nav />
+    <main id="main" tabindex="-1">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="container">
+        <span>© {new Date().getFullYear()} {site.name}</span>
+        <span class="site-footer__meta">Built with Astro · Three.js · Lenis — hosted on GitHub Pages</span>
+      </div>
+    </footer>
+
+    <style>
+      .site-footer {
+        border-top: 1px solid var(--border);
+        padding-block: var(--sp-4);
+        color: var(--fg-faint);
+        font-size: var(--fs-1);
+      }
+      .site-footer .container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--sp-2);
+        justify-content: space-between;
+      }
+    </style>
+  </body>
+</html>

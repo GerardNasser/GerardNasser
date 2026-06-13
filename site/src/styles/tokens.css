@@ -1,0 +1,60 @@
+/* ============================================================
+   Design tokens — terminal-dark scientific (OLED)
+   Fonts: JetBrains Mono (terminal voice) + Spectral (scholarly serif)
+   Accents: the four nucleotides.
+   ============================================================ */
+:root {
+  /* nucleotide accents (locked in hero choreography) */
+  --nt-a: #3df06b; /* adenine  — green  */
+  --nt-t: #ff4d6d; /* thymine  — red    */
+  --nt-g: #ffc83d; /* guanine  — amber  */
+  --nt-c: #28e0f5; /* cytosine — cyan   */
+
+  /* surfaces */
+  --bg: #04060c;
+  --bg-raise: #0b101b;
+  --bg-card: #0d1422;
+  --border: #1c2738;
+  --border-bright: #2c3c55;
+
+  /* text */
+  --fg: #e7eef6;
+  --fg-soft: #9fb2c5;
+  --fg-faint: #8295aa; /* AA-compliant on bg / bg-card / bg-raise */
+
+  /* semantic */
+  --accent: var(--nt-c);
+  --accent-2: var(--nt-a);
+  --danger: var(--nt-t);
+  --glow-accent: rgba(40, 224, 245, 0.45);
+
+  /* type */
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-serif: 'Spectral', Georgia, 'Times New Roman', serif;
+  --fs-0: 0.75rem;   /* 12 — labels  */
+  --fs-1: 0.875rem;  /* 14 — meta    */
+  --fs-2: 1rem;      /* 16 — UI body */
+  --fs-3: 1.1875rem; /* 19 — prose   */
+  --fs-4: 1.5rem;    /* 24 — h3      */
+  --fs-5: 2rem;      /* 32 — h2      */
+  --fs-6: clamp(2.5rem, 6vw, 4rem); /* display */
+
+  /* rhythm (8px scale) */
+  --sp-1: 0.5rem;
+  --sp-2: 1rem;
+  --sp-3: 1.5rem;
+  --sp-4: 2rem;
+  --sp-5: 3rem;
+  --sp-6: 5rem;
+  --sp-7: 7.5rem;
+
+  --radius: 10px;
+  --radius-lg: 16px;
+  --container: 68rem;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* z-scale */
+  --z-bg: 0;
+  --z-content: 10;
+  --z-nav: 100;
+}

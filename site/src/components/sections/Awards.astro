@@ -1,0 +1,37 @@
+---
+import awards from '../../data/awards.json';
+---
+
+<section class="section" id="awards">
+  <div class="container">
+    <p class="section__eyebrow" data-reveal>Honors &amp; awards</p>
+    <h2 class="section__title" data-reveal>{awards.title}</h2>
+
+    <ol class="aw__list">
+      {
+        awards.items.map((a) => (
+          <li class="aw" data-reveal>
+            <span class="aw__year">{a.year}</span>
+            <div>
+              <h3 class="aw__name">{a.name}</h3>
+              <p class="aw__org">{a.org}</p>
+              <p class="aw__note">{a.note}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
+
+<style>
+  .aw__list { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--sp-3); }
+  .aw { display: grid; grid-template-columns: 5rem 1fr; gap: var(--sp-2); padding-bottom: var(--sp-3); border-bottom: 1px solid var(--border); }
+  .aw__year { color: var(--accent); font-variant-numeric: tabular-nums; }
+  .aw__name { font-size: var(--fs-4); }
+  .aw__org { color: var(--accent-2); font-size: var(--fs-1); margin: var(--sp-1) 0 0; }
+  .aw__note { color: var(--fg-soft); font-size: var(--fs-1); margin: var(--sp-1) 0 0; }
+  @media (max-width: 720px) {
+    .aw { grid-template-columns: 1fr; gap: var(--sp-1); }
+  }
+</style>

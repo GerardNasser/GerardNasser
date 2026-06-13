@@ -1,0 +1,30 @@
+{
+  "title": "Talks & posters.",
+  "lede": "Conference presentations and posters.",
+  "items": [
+    {
+      "title": "TALK TITLE — send me the ICCABS talk title",
+      "event": "ICCABS 2026 — 14th Int'l Conference on Computational Advances in Bio and Medical Sciences",
+      "year": 2026,
+      "type": "talk"
+    },
+    {
+      "title": "All Edges Lead to Nodes: Can Multiple Methods Lead to the Same Hi-C Contact Maps?",
+      "event": "ASM Microbe 2026 · Washington, D.C.",
+      "year": 2026,
+      "type": "poster"
+    },
+    {
+      "title": "Isolation and Characterization of Novel Mycobacterium smegmatis Bacteriophage from New Jersey Soil Over the Past Six Years",
+      "event": "9th Annual SEA-PHAGES Symposium · Ashburn, VA",
+      "year": 2017,
+      "type": "poster"
+    },
+    {
+      "title": "Development of Cluster-Specific Phage PCR Primers",
+      "event": "Montclair State University Student Research Symposium · Montclair, NJ",
+      "year": 2017,
+      "type": "poster"
+    }
+  ]
+}

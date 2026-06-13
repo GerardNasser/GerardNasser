@@ -1,0 +1,13 @@
+{
+  "name": "Gerard Nasser",
+  "role": "Bioinformatics PhD Candidate",
+  "tagline": "Hi-C metagenomics · Antimicrobial resistance · Public health",
+  "blurb": "Bioinformatics PhD researcher at UNC Charlotte working where computational biology meets public health — building Hi-C metagenomic methods that link antimicrobial-resistance genes to their bacterial and plasmid hosts in built and wastewater environments.",
+  "email": "gerard.j.nasser@gmail.com",
+  "cvUrl": "cv.pdf",
+  "socials": [
+    { "label": "GitHub", "href": "https://github.com/GerardNasser" },
+    { "label": "LinkedIn", "href": "https://www.linkedin.com/in/gerard-r-nasser" },
+    { "label": "Email", "href": "mailto:gerard.j.nasser@gmail.com" }
+  ]
+}

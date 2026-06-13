@@ -1,0 +1,69 @@
+---
+import talks from '../../data/talks.json';
+const items = talks.items as Array<{
+  title: string;
+  event: string;
+  year: number;
+  type: 'talk' | 'poster';
+  url?: string;
+}>;
+const sorted = [...items].sort((a, b) => b.year - a.year);
+---
+
+<section class="section" id="talks">
+  <div class="container">
+    <p class="section__eyebrow" data-reveal>Conference talks &amp; posters</p>
+    <h2 class="section__title" data-reveal>{talks.title}</h2>
+    <p class="section__lede" data-reveal>{talks.lede}</p>
+
+    {
+      sorted.length === 0 ? (
+        <p class="talks__empty section__lede" data-reveal style="opacity:.7">
+          Talks and posters will be listed here — send me the title, event, year, and a link (if any) for each.
+        </p>
+      ) : (
+        <ol class="talks__list">
+          {sorted.map((t) => (
+            <li class="talk" data-reveal>
+              <span class="talk__year">{t.year}</span>
+              <div>
+                <h3 class="talk__title">
+                  {t.url ? (
+                    <a href={t.url} target="_blank" rel="noopener">{t.title}</a>
+                  ) : (
+                    t.title
+                  )}
+                  <span class={`talk__tag talk__tag--${t.type}`}>{t.type}</span>
+                </h3>
+                <p class="talk__event">{t.event}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      )
+    }
+  </div>
+</section>
+
+<style>
+  .talks__list { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--sp-3); }
+  .talk { display: grid; grid-template-columns: 5rem 1fr; gap: var(--sp-2); padding-bottom: var(--sp-3); border-bottom: 1px solid var(--border); }
+  .talk__year { color: var(--accent); font-variant-numeric: tabular-nums; }
+  .talk__title { font-size: var(--fs-4); }
+  .talk__event { color: var(--fg-soft); font-size: var(--fs-1); margin: var(--sp-1) 0 0; }
+  .talk__tag {
+    margin-left: var(--sp-1);
+    font-size: var(--fs-0);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 1px 7px;
+    border-radius: 999px;
+    border: 1px solid currentColor;
+    vertical-align: middle;
+  }
+  .talk__tag--talk { color: var(--nt-c); }
+  .talk__tag--poster { color: var(--nt-g); }
+  @media (max-width: 720px) {
+    .talk { grid-template-columns: 1fr; gap: var(--sp-1); }
+  }
+</style>

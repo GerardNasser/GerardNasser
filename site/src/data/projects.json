@@ -1,0 +1,67 @@
+{
+  "projects": [
+    {
+      "name": "PRISMA-App",
+      "category": "app",
+      "blurb": "Desktop app for running PRISMA-2020 systematic reviews & meta-analyses — field-aware checklists, screening, extraction and risk-of-bias workflows, with pulls from PubMed, OpenAlex and Crossref.",
+      "stack": ["Python", "CustomTkinter", "SQLAlchemy", "Pydantic"],
+      "status": "active",
+      "href": "https://github.com/GerardNasser/PRISMA-App",
+      "base": "c"
+    },
+    {
+      "name": "Bioinformatic Scripting App",
+      "category": "app",
+      "blurb": "Offline GUI that builds bioinformatics pipelines from a catalog of 60+ tools and exports them to Bash, Python, R, Nextflow, Snakemake or CWL — with SLURM/PBS/SGE/LSF scheduler support.",
+      "stack": ["Python", "PySide6", "YAML"],
+      "status": "stable",
+      "href": "https://github.com/GerardNasser/Bioinformatic-Scripting-Application",
+      "base": "g"
+    },
+    {
+      "name": "rarekit",
+      "category": "app",
+      "blurb": "Single-pass cumulative subsetting CLI for rarefaction workflows (FASTQ / FASTA / TSV / count tables) — holds a <200 MB memory ceiling regardless of input size, with a property-based test suite.",
+      "stack": ["Python", "NumPy"],
+      "status": "early",
+      "href": "https://github.com/GerardNasser/rarekit",
+      "base": "t"
+    },
+    {
+      "name": "Inkstone",
+      "category": "app",
+      "blurb": "Converts Word docs, notebooks, CSV/TSV, BibTeX, source code and more into clean, Obsidian-ready Markdown with YAML frontmatter. Ships as a desktop app and a Python library.",
+      "stack": ["Python", "CustomTkinter"],
+      "status": "stable",
+      "href": "https://github.com/GerardNasser/Inkstone",
+      "base": "c"
+    },
+    {
+      "name": "OneLiner",
+      "category": "app",
+      "blurb": "Minimal macOS utility that flattens messy multi-line text into one clean line, stripping invisible Unicode and collapsing whitespace.",
+      "stack": ["Python", "CustomTkinter"],
+      "status": "stable",
+      "href": "https://github.com/GerardNasser/OneLiner-App",
+      "base": "a"
+    },
+    {
+      "name": "CD300",
+      "category": "research",
+      "blurb": "Comparative-genomics pipeline that finds CD300 immune-gene orthologs across vertebrates by combining local BLAST searches with NCBI, Ensembl and ITIS taxonomy APIs.",
+      "stack": ["Python", "Bash", "Biopython"],
+      "status": "active",
+      "href": "https://github.com/GerardNasser/CD300",
+      "base": "a"
+    },
+    {
+      "name": "Alestur",
+      "category": "side",
+      "blurb": "A GitHub Pages site for a homebrew D&D campaign — interactive character profiles, family tree and backstory. A playground for modern CSS.",
+      "stack": ["HTML", "CSS", "JS"],
+      "status": "stable",
+      "href": "https://github.com/GerardNasser/Alestur-DND-Character",
+      "base": "t"
+    }
+  ]
+}
