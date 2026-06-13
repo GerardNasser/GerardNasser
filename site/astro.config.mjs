@@ -1,10 +1,8 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
-// Phase A: project-pages URL (https://gerardnasser.github.io/GerardNasser/).
-// Phase B (custom domain at root): set site to 'https://<domain>', remove
-// `base`, and add public/CNAME containing the bare domain.
+// Custom domain at the root (gerardnasser.com). No `base` needed — the site is
+// served from the domain root, and public/CNAME tells GitHub Pages the domain.
 export default defineConfig({
-  site: 'https://gerardnasser.github.io',
-  base: '/GerardNasser/',
+  site: 'https://gerardnasser.com',
 });
