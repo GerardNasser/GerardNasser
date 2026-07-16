@@ -31,10 +31,10 @@ html.lenis body { height: auto; }
 .lenis.lenis-stopped { overflow: hidden; }
 
 h1, h2, h3 {
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
   font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.01em;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
   margin: 0;
 }
 
@@ -62,6 +62,9 @@ img { max-width: 100%; height: auto; display: block; }
   padding-inline: var(--sp-3);
 }
 
+/* the section counter drives the "01 / 02 …" lab-notebook numbering */
+#main { counter-reset: section; }
+
 /* Skip link */
 .skip-link {
   position: absolute;
@@ -79,42 +82,90 @@ img { max-width: 100%; height: auto; display: block; }
 /* Section scaffolding */
 .section {
   position: relative;
+  counter-increment: section;
   padding-block: var(--sp-7);
-  border-top: 1px solid var(--border);
+}
+/* hairline that fades at both ends instead of a hard full-width rule */
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border) 18%, var(--border) 82%, transparent);
 }
 .section__eyebrow {
+  font-family: var(--font-mono);
   font-size: var(--fs-0);
-  letter-spacing: 0.32em;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: var(--sp-2);
+  color: var(--fg-soft);
+  margin-bottom: var(--sp-3);
   display: flex;
   align-items: center;
-  gap: var(--sp-1);
+  gap: 0.75rem;
 }
+/* section number, ruled off from the label */
 .section__eyebrow::before {
-  content: '';
-  width: 1.5rem;
-  height: 1px;
-  background: var(--accent);
+  content: counter(section, decimal-leading-zero);
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding-right: 0.75rem;
+  border-right: 1px solid var(--border-bright);
 }
 .section__title {
   font-size: var(--fs-5);
   margin-bottom: var(--sp-4);
-  max-width: 22ch;
+  max-width: 20ch;
+  letter-spacing: -0.025em;
 }
 .section__lede {
   font-family: var(--font-serif);
   font-size: var(--fs-3);
   color: var(--fg-soft);
-  max-width: 60ch;
+  max-width: 62ch;
   line-height: 1.7;
 }
+
+/* Shared surface: cards across projects / genomes / teaching read as one system.
+   Top-lit gradient, hairline border, and a soft accent glow + lift on hover. */
+.card {
+  position: relative;
+  display: block;
+  padding: var(--sp-3);
+  background: linear-gradient(160deg, var(--bg-card-2), var(--bg-card));
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  color: var(--fg);
+  overflow: hidden;
+  transition:
+    border-color 0.25s var(--ease-out),
+    transform 0.25s var(--ease-out),
+    box-shadow 0.25s var(--ease-out);
+}
+.card:hover {
+  border-color: var(--border-bright);
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px -24px rgba(0, 0, 0, 0.9);
+}
+/* thin accent seam that lights up on hover */
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0;
+  transition: opacity 0.25s var(--ease-out);
+}
+.card:hover::after { opacity: 0.7; }
 
 /* Scroll-reveal: hidden until JS adds .is-in. No JS / reduced-motion => visible. */
 [data-reveal] {
   opacity: 0;
-  transform: translateY(28px);
+  transform: translateY(24px);
   transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
 }
 [data-reveal].is-in { opacity: 1; transform: none; }

@@ -25,7 +25,7 @@ const statusLabel: Record<string, string> = { active: 'active', stable: 'stable'
       ) : (
         <div class="proj__grid">
           {items.map((p) => (
-            <a class="proj" href={p.href} target="_blank" rel="noopener" data-reveal style={`--accent:var(--nt-${p.base ?? 'c'})`}>
+            <a class="card proj" href={p.href} target="_blank" rel="noopener" data-reveal style={`--accent:var(--nt-${p.base ?? 'c'})`}>
               <div class="proj__top">
                 <h3 class="proj__name">{p.name}</h3>
                 <span class={`proj__status proj__status--${p.status}`}>{statusLabel[p.status]}</span>
@@ -50,18 +50,11 @@ const statusLabel: Record<string, string> = { active: 'active', stable: 'stable'
     grid-template-columns: repeat(2, 1fr);
     gap: var(--sp-3);
   }
+  /* .card supplies surface + hover; .proj adds the flex flow and left tick */
   .proj {
     display: flex;
     flex-direction: column;
     gap: var(--sp-2);
-    padding: var(--sp-3);
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    color: var(--fg);
-    position: relative;
-    overflow: hidden;
-    transition: border-color 0.25s var(--ease-out), transform 0.25s var(--ease-out);
   }
   .proj::before {
     content: '';
@@ -69,12 +62,8 @@ const statusLabel: Record<string, string> = { active: 'active', stable: 'stable'
     inset: 0 auto 0 0;
     width: 3px;
     background: var(--accent);
-    opacity: 0.5;
+    opacity: 0.55;
     transition: opacity 0.25s var(--ease-out);
-  }
-  .proj:hover {
-    border-color: var(--border-bright);
-    transform: translateY(-3px);
   }
   .proj:hover::before { opacity: 1; }
   .proj__top { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-2); }

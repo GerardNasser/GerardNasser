@@ -20,6 +20,7 @@ import { nav, site } from '../data/site';
       </ul>
     </nav>
   </div>
+  <div class="nav__progress" aria-hidden="true"><span data-nav-progress></span></div>
 </header>
 
 <style>
@@ -51,6 +52,8 @@ import { nav, site } from '../data/site';
     font-weight: 700;
     font-size: var(--fs-1);
     letter-spacing: 0.02em;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
   .nav__dot {
     width: 9px;
@@ -68,15 +71,49 @@ import { nav, site } from '../data/site';
     font-size: var(--fs-1);
   }
   .nav__list a {
+    position: relative;
     display: inline-flex;
     align-items: center;
     min-height: 44px;
     padding-inline: 6px;
     color: var(--fg-soft);
   }
+  /* active-section underline: a short accent rule that fades in */
+  .nav__list a::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    right: 6px;
+    bottom: 12px;
+    height: 1.5px;
+    background: var(--accent);
+    box-shadow: 0 0 8px var(--glow-accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.28s var(--ease-out);
+  }
   .nav__list a:hover,
   .nav__list a[aria-current='true'] {
     color: var(--fg);
+  }
+  .nav__list a[aria-current='true']::after { transform: scaleX(1); }
+
+  /* scroll-progress rail pinned to the bottom edge of the bar */
+  .nav__progress {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: transparent;
+  }
+  .nav__progress span {
+    display: block;
+    height: 100%;
+    width: var(--progress, 0%);
+    background: linear-gradient(90deg, var(--nt-a), var(--nt-c));
+    box-shadow: 0 0 10px var(--glow-accent);
+    transition: width 0.1s linear;
   }
   /* On small screens the section links scroll horizontally rather than wrap/crowd */
   @media (max-width: 720px) {

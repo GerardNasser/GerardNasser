@@ -12,7 +12,7 @@ const items = [...genomes.items].sort((a, b) => b.year - a.year);
     <ul class="gen__grid">
       {
         items.map((g) => (
-          <a class="gen" href={g.url} target="_blank" rel="noopener" data-reveal>
+          <a class="card gen" href={g.url} target="_blank" rel="noopener" data-reveal>
             <div class="gen__top">
               <h3 class="gen__name">{g.name}</h3>
               <span class="gen__year">{g.year}</span>
@@ -29,18 +29,8 @@ const items = [...genomes.items].sort((a, b) => b.year - a.year);
 
 <style>
   .gen__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--sp-2); list-style: none; padding: 0; margin: 0; }
-  .gen {
-    display: block;
-    padding: var(--sp-3);
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    color: var(--fg);
-    transition: border-color 0.25s var(--ease-out), transform 0.25s var(--ease-out);
-  }
-  .gen:hover { border-color: var(--accent); transform: translateY(-2px); }
   .gen__top { display: flex; align-items: baseline; justify-content: space-between; gap: var(--sp-2); }
-  .gen__name { font-size: var(--fs-2); }
+  .gen__name { font-size: var(--fs-2); font-family: var(--font-mono); letter-spacing: 0.01em; }
   .gen__year { color: var(--fg-faint); font-size: var(--fs-1); font-variant-numeric: tabular-nums; }
   .gen__acc { color: var(--fg-soft); font-size: var(--fs-1); margin: var(--sp-1) 0 0; }
   .gen__acc-id { color: var(--accent); }

@@ -57,9 +57,18 @@ if ('IntersectionObserver' in window) {
   revealAll();
 }
 
-// --- nav chrome: scrolled state + active section ---
+// --- nav chrome: scrolled state + scroll progress + active section ---
 const navEl = document.querySelector('[data-nav]');
-const onScroll = () => navEl?.toggleAttribute('data-scrolled', window.scrollY > 8);
+const progressEl = document.querySelector<HTMLElement>('[data-nav-progress]');
+const onScroll = () => {
+  navEl?.toggleAttribute('data-scrolled', window.scrollY > 8);
+  if (progressEl) {
+    const doc = document.documentElement;
+    const max = doc.scrollHeight - doc.clientHeight;
+    const pct = max > 0 ? (window.scrollY / max) * 100 : 0;
+    progressEl.style.setProperty('--progress', `${pct.toFixed(2)}%`);
+  }
+};
 onScroll();
 window.addEventListener('scroll', onScroll, { passive: true });
 

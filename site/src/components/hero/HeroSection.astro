@@ -114,30 +114,44 @@ const bgCode = [
   }
   /* translucent frosted panel keeps the text legible over the animated helix */
   .hero__panel {
+    position: relative;
     display: inline-block;
     max-width: 100%;
     padding: var(--sp-4) clamp(var(--sp-3), 7vw, var(--sp-6));
     border-radius: var(--radius-lg);
-    background: color-mix(in srgb, var(--bg) 52%, transparent);
-    -webkit-backdrop-filter: blur(12px) saturate(115%);
-    backdrop-filter: blur(12px) saturate(115%);
-    border: 1px solid color-mix(in srgb, #ffffff 9%, transparent);
-    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.4);
+    background: color-mix(in srgb, var(--bg) 48%, transparent);
+    -webkit-backdrop-filter: blur(14px) saturate(120%);
+    backdrop-filter: blur(14px) saturate(120%);
+    border: 1px solid color-mix(in srgb, #ffffff 8%, transparent);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+  /* faint accent seam across the top edge of the panel */
+  .hero__panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 18%;
+    right: 18%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--glow-accent), transparent);
   }
   /* fallback for browsers without backdrop-filter: lean on a more opaque bg */
   @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
     .hero__panel { background: color-mix(in srgb, var(--bg) 78%, transparent); }
   }
   .hero__eyebrow {
+    font-family: var(--font-mono);
     font-size: var(--fs-0);
     letter-spacing: 0.34em;
     text-transform: uppercase;
     color: var(--accent);
-    margin: 0 0 var(--sp-2);
+    margin: 0 0 var(--sp-3);
   }
   .hero__name {
     font-size: var(--fs-6);
-    text-shadow: 0 0 30px rgba(40, 224, 245, 0.35);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    text-shadow: 0 0 42px rgba(40, 224, 245, 0.3);
     margin: 0;
   }
   .hero__tagline {

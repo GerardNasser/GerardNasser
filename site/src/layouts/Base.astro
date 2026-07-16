@@ -33,18 +33,18 @@ const {
     <link
       rel="preload"
       as="style"
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Spectral:ital,wght@0,400;0,500;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Spectral:ital,wght@0,400;0,500;1,400&display=swap"
     />
     <link
       rel="stylesheet"
       media="print"
       onload="this.media='all'"
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Spectral:ital,wght@0,400;0,500;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Spectral:ital,wght@0,400;0,500;1,400&display=swap"
     />
     <noscript>
       <link
         rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Spectral:ital,wght@0,400;0,500;1,400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Spectral:ital,wght@0,400;0,500;1,400&display=swap"
       />
     </noscript>
 
@@ -54,31 +54,60 @@ const {
     </script>
   </head>
   <body>
+    <div class="bg-field" aria-hidden="true"></div>
     <a class="skip-link" href="#main">Skip to content</a>
     <Nav />
     <main id="main" tabindex="-1">
       <slot />
     </main>
     <footer class="site-footer">
-      <div class="container">
-        <span>© {new Date().getFullYear()} {site.name}</span>
-        <span class="site-footer__meta">Built with Astro · Three.js · Lenis — hosted on GitHub Pages</span>
+      <div class="container site-footer__inner">
+        <span class="site-footer__mark">
+          <span class="site-footer__dot" aria-hidden="true"></span>
+          © {new Date().getFullYear()} {site.name}
+        </span>
+        <span class="site-footer__meta">Astro · Three.js · Lenis — on GitHub Pages</span>
       </div>
     </footer>
 
     <style>
+      /* Fixed atmosphere layer: faint blueprint grid + top vignette so the
+         OLED black reads as depth rather than a flat void. Sits behind all
+         content and never intercepts pointer events. */
+      .bg-field {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        background:
+          radial-gradient(120% 80% at 50% -10%, var(--glow-hero) 0%, transparent 55%),
+          linear-gradient(var(--grid-line) 1px, transparent 1px),
+          linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+        background-size: 100% 100%, 64px 64px, 64px 64px;
+        -webkit-mask-image: radial-gradient(140% 100% at 50% 0%, #000 55%, transparent 100%);
+        mask-image: radial-gradient(140% 100% at 50% 0%, #000 55%, transparent 100%);
+      }
+
       .site-footer {
         border-top: 1px solid var(--border);
         padding-block: var(--sp-4);
         color: var(--fg-faint);
         font-size: var(--fs-1);
       }
-      .site-footer .container {
+      .site-footer__inner {
         display: flex;
         flex-wrap: wrap;
         gap: var(--sp-2);
+        align-items: center;
         justify-content: space-between;
       }
+      .site-footer__mark { display: inline-flex; align-items: center; gap: var(--sp-1); color: var(--fg-soft); }
+      .site-footer__dot {
+        width: 7px; height: 7px; border-radius: 50%;
+        background: var(--accent-2);
+        box-shadow: 0 0 8px color-mix(in srgb, var(--accent-2) 60%, transparent);
+      }
+      .site-footer__meta { letter-spacing: 0.02em; }
     </style>
   </body>
 </html>
