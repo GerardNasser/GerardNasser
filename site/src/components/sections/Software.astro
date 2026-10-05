@@ -1,0 +1,39 @@
+---
+import Section from '../Section.astro';
+import { projectsByCategory } from '../../data/projects';
+
+const apps = projectsByCategory('app');
+const profile = 'https://github.com/GerardNasser';
+---
+
+<Section id="software" title="Software">
+  <p class="lede" data-reveal>Desktop apps and command-line tools I wrote and maintain. Each row links to its repository.</p>
+
+  <ul class="rows">
+    {
+      apps.map((p) => (
+        <li data-reveal>
+          <a class="row" href={p.href} target="_blank" rel="noopener">
+            <span class="row__meta">{p.status}</span>
+            <div>
+              <h3 class="row__title">
+                {p.name}
+                <span class="row__arrow" aria-hidden="true">&nearr;</span>
+              </h3>
+              <p class="row__text">{p.blurb}</p>
+              <ul class="tags">
+                {p.stack.map((s) => (
+                  <li>{s}</li>
+                ))}
+              </ul>
+            </div>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+  <p class="more" data-reveal>
+    <a href={profile} target="_blank" rel="noopener">All repositories on GitHub <span aria-hidden="true">&nearr;</span></a>
+  </p>
+</Section>

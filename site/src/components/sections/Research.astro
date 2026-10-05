@@ -1,0 +1,46 @@
+---
+import Section from '../Section.astro';
+import about from '../../data/about.json';
+---
+
+<Section id="research" title="Research">
+  <p class="statement" data-reveal>{about.title}</p>
+  <p class="lede" data-reveal>{about.lede}</p>
+
+  <div class="areas">
+    {
+      about.columns.map((col) => (
+        <div data-reveal>
+          <h3 class="sub">{col.head}</h3>
+          <ul class="areas__list">
+            {col.items.map((i) => (
+              <li>{i}</li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+  </div>
+</Section>
+
+<style>
+  .areas {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--sp-4);
+    margin-top: var(--sp-5);
+  }
+  .areas .sub { margin-top: 0; }
+  .areas__list { list-style: none; padding: 0; margin: 0; }
+  .areas__list li {
+    font-family: var(--font-serif);
+    font-size: 1.0625rem;
+    line-height: 1.45;
+    color: var(--fg-soft);
+    padding: var(--sp-1) 0;
+    border-top: 1px solid var(--border);
+  }
+  @media (max-width: 720px) {
+    .areas { grid-template-columns: 1fr; gap: var(--sp-3); }
+  }
+</style>

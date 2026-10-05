@@ -1,57 +1,48 @@
 ---
+import Section from '../Section.astro';
 import { site, socials } from '../../data/site';
+
+const links = socials.filter((s) => s.href.startsWith('http'));
 ---
 
-<section class="section contact" id="contact">
-  <div class="container">
-    <p class="section__eyebrow" data-reveal>Contact</p>
-    <h2 class="contact__title" data-reveal>Let&rsquo;s build something reproducible.</h2>
-    <p class="section__lede" data-reveal>
-      Open to collaboration on bioinformatics tools, genomics pipelines, and microbiome research.
-    </p>
+<Section id="contact" title="Contact">
+  <p class="lede" data-reveal>
+    Open to collaboration on bioinformatics tools, genomics pipelines, and microbiome research.
+  </p>
 
-    <a class="contact__email" href={`mailto:${site.email}`} data-reveal>{site.email}</a>
+  <p class="contact__line" data-reveal>
+    <a class="contact__email" href={`mailto:${site.email}`}>{site.email}</a>
+  </p>
 
-    <ul class="contact__socials" data-reveal>
-      {
-        socials.map((s) => (
-          <li>
-            <a href={s.href} target={s.href.startsWith('http') ? '_blank' : undefined} rel="noopener">
-              {s.label}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  </div>
-</section>
+  <ul class="contact__socials" data-reveal>
+    {
+      links.map((s) => (
+        <li>
+          <a href={s.href} target="_blank" rel="noopener">
+            {s.label} <span aria-hidden="true">&nearr;</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</Section>
 
 <style>
-  .contact { text-align: center; }
-  .contact .section__eyebrow { justify-content: center; }
-  .contact__title {
-    font-size: var(--fs-5);
-    margin-bottom: var(--sp-3);
-  }
-  .contact .section__lede { margin-inline: auto; }
+  .contact__line { margin: 0 0 var(--sp-3); }
   .contact__email {
-    display: inline-block;
-    margin-block: var(--sp-4) var(--sp-3);
-    font-size: clamp(1.25rem, 4vw, 2rem);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.375rem, 4.4vw, 2.25rem);
+    letter-spacing: -0.02em;
     color: var(--fg);
-    border-bottom: 2px solid var(--accent);
-    padding-bottom: 4px;
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.2em;
+    overflow-wrap: anywhere;
   }
   .contact__email:hover { color: var(--accent); }
-  .contact__socials {
-    list-style: none;
-    display: flex;
-    gap: var(--sp-3);
-    justify-content: center;
-    padding: 0;
-    margin: 0;
-    flex-wrap: wrap;
-  }
-  .contact__socials a { color: var(--fg-soft); }
-  .contact__socials a:hover { color: var(--accent); }
+  .contact__socials { list-style: none; display: flex; flex-wrap: wrap; gap: var(--sp-3); padding: 0; margin: 0; font-size: var(--fs-1); }
+  .contact__socials a { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; color: var(--fg-soft); }
+  .contact__socials a:hover { color: var(--fg); }
 </style>

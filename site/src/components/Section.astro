@@ -1,0 +1,22 @@
+---
+/**
+ * Section shell: a sticky heading in a narrow left column and the content in a
+ * wide right column. The number comes from the CSS `section` counter.
+ */
+interface Props {
+  id: string;
+  title: string;
+}
+const { id, title } = Astro.props;
+---
+
+<section class="section" id={id}>
+  <div class="container section__grid">
+    <header class="section__head" data-reveal>
+      <h2 class="section__title">{title}</h2>
+    </header>
+    <div class="section__body">
+      <slot />
+    </div>
+  </div>
+</section>

@@ -4,7 +4,7 @@ import { nav, site } from '../data/site';
 
 <header class="nav" data-nav>
   <div class="container nav__inner">
-    <a class="nav__brand" href="#top">
+    <a class="nav__brand" href="#top" aria-label={site.name}>
       <span class="nav__dot" aria-hidden="true"></span>
       {site.name}
     </a>
@@ -60,7 +60,6 @@ import { nav, site } from '../data/site';
     height: 9px;
     border-radius: 50%;
     background: var(--accent);
-    box-shadow: 0 0 10px var(--glow-accent);
   }
   .nav__list {
     list-style: none;
@@ -87,7 +86,6 @@ import { nav, site } from '../data/site';
     bottom: 12px;
     height: 1.5px;
     background: var(--accent);
-    box-shadow: 0 0 8px var(--glow-accent);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.28s var(--ease-out);
@@ -111,17 +109,20 @@ import { nav, site } from '../data/site';
     display: block;
     height: 100%;
     width: var(--progress, 0%);
-    background: linear-gradient(90deg, var(--nt-a), var(--nt-c));
-    box-shadow: 0 0 10px var(--glow-accent);
+    background: var(--accent);
     transition: width 0.1s linear;
   }
   /* On small screens the section links scroll horizontally rather than wrap/crowd */
   @media (max-width: 720px) {
+    /* five links fit beside the dot once the name is dropped (the hero
+       carries it); the list still scrolls if a narrow phone runs out */
+    .nav__brand { font-size: 0; gap: 0; }
+    .nav__inner { gap: var(--sp-2); }
     .nav__list {
-      gap: var(--sp-2);
+      gap: 2px;
       font-size: var(--fs-0);
       overflow-x: auto;
-      max-width: 62vw;
+      min-width: 0;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
     }

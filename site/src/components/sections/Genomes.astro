@@ -1,40 +1,57 @@
 ---
+import Section from '../Section.astro';
 import genomes from '../../data/genomes.json';
+
 const items = [...genomes.items].sort((a, b) => b.year - a.year);
 ---
 
-<section class="section" id="publications">
-  <div class="container">
-    <p class="section__eyebrow" data-reveal>Publications</p>
-    <h2 class="section__title" data-reveal>{genomes.title}</h2>
-    <p class="section__lede" data-reveal>{genomes.lede}</p>
+<Section id="genomes" title="Genome submissions">
+  <p class="lede" data-reveal>{genomes.lede}</p>
 
-    <ul class="gen__grid">
+  <table class="gen" data-reveal>
+    <thead>
+      <tr>
+        <th scope="col">Phage</th>
+        <th scope="col">GenBank accession</th>
+        <th scope="col" class="gen__num">Year</th>
+      </tr>
+    </thead>
+    <tbody>
       {
         items.map((g) => (
-          <a class="card gen" href={g.url} target="_blank" rel="noopener" data-reveal>
-            <div class="gen__top">
-              <h3 class="gen__name">{g.name}</h3>
-              <span class="gen__year">{g.year}</span>
-            </div>
-            <p class="gen__acc">
-              GenBank <span class="gen__acc-id">{g.accession}</span>
-            </p>
-          </a>
+          <tr>
+            <th scope="row">{g.name}</th>
+            <td>
+              <a href={g.url} target="_blank" rel="noopener">{g.accession}</a>
+            </td>
+            <td class="gen__num">{g.year}</td>
+          </tr>
         ))
       }
-    </ul>
-  </div>
-</section>
+    </tbody>
+  </table>
+</Section>
 
 <style>
-  .gen__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--sp-2); list-style: none; padding: 0; margin: 0; }
-  .gen__top { display: flex; align-items: baseline; justify-content: space-between; gap: var(--sp-2); }
-  .gen__name { font-size: var(--fs-2); font-family: var(--font-mono); letter-spacing: 0.01em; }
-  .gen__year { color: var(--fg-faint); font-size: var(--fs-1); font-variant-numeric: tabular-nums; }
-  .gen__acc { color: var(--fg-soft); font-size: var(--fs-1); margin: var(--sp-1) 0 0; }
-  .gen__acc-id { color: var(--accent); }
-  @media (max-width: 720px) {
-    .gen__grid { grid-template-columns: 1fr; }
+  .gen { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+  .gen th,
+  .gen td { text-align: left; padding: var(--sp-2) var(--sp-2) var(--sp-2) 0; border-top: 1px solid var(--border); vertical-align: baseline; }
+  .gen tbody tr:last-child > * { border-bottom: 1px solid var(--border); }
+  .gen thead th {
+    border-top: 0;
+    font-family: var(--font-mono);
+    font-size: var(--fs-0);
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--fg-faint);
+  }
+  .gen tbody th { font-family: var(--font-serif); font-weight: 500; font-size: var(--fs-3); color: var(--fg); }
+  .gen td { font-size: var(--fs-1); color: var(--fg-soft); }
+  .gen__num { text-align: right !important; padding-right: 0 !important; }
+  .gen a { text-decoration: underline; text-decoration-color: var(--border-bright); text-underline-offset: 3px; }
+  .gen a:hover { text-decoration-color: currentColor; }
+  @media (max-width: 480px) {
+    .gen tbody th { font-size: 1.0625rem; }
   }
 </style>

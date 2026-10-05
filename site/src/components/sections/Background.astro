@@ -1,0 +1,39 @@
+---
+import Section from '../Section.astro';
+import education from '../../data/education.json';
+import awards from '../../data/awards.json';
+---
+
+<Section id="background" title="Education and awards">
+  <h3 class="sub" data-reveal>Education</h3>
+  <ul class="rows">
+    {
+      education.items.map((e) => (
+        <li class="row" data-reveal>
+          <span class="row__meta">{e.year}</span>
+          <div>
+            <p class="row__title">{e.degree}</p>
+            <p class="row__sub">{e.school}</p>
+            {e.note && <p class="row__text">{e.note}</p>}
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+
+  <h3 class="sub" data-reveal>Awards</h3>
+  <ul class="rows">
+    {
+      awards.items.map((a) => (
+        <li class="row" data-reveal>
+          <span class="row__meta">{a.year}</span>
+          <div>
+            <p class="row__title">{a.name}</p>
+            <p class="row__sub">{a.org}</p>
+            <p class="row__text">{a.note}</p>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</Section>
