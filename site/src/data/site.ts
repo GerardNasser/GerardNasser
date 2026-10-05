@@ -4,7 +4,7 @@ import siteData from './site.json';
 export const site = {
   name: siteData.name,
   role: siteData.role,
-  tagline: siteData.tagline,
+  summary: siteData.summary,
   blurb: siteData.blurb,
   email: siteData.email,
 };
@@ -13,11 +13,8 @@ export const socials = siteData.socials;
 
 // Curated nav (not every section gets a link, to keep the bar from overflowing).
 export const nav = [
-  { id: 'about', label: 'About' },
-  { id: 'github', label: 'GitHub' },
-  { id: 'applications', label: 'Apps' },
-  { id: 'projects', label: 'Projects' },
-  { id: 'publications', label: 'Publications' },
+  { id: 'research', label: 'Research' },
+  { id: 'software', label: 'Software' },
   { id: 'talks', label: 'Talks' },
   { id: 'teaching', label: 'Teaching' },
   { id: 'contact', label: 'Contact' },

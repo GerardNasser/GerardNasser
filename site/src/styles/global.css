@@ -24,12 +24,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Lenis: while smooth-scroll is active, let it own the scroll */
-html.lenis,
-html.lenis body { height: auto; }
-.lenis.lenis-smooth { scroll-behavior: auto !important; }
-.lenis.lenis-stopped { overflow: hidden; }
-
 h1, h2, h3 {
   font-family: var(--font-display);
   font-weight: 700;
@@ -79,11 +73,12 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .skip-link:focus { left: 0; }
 
-/* Section scaffolding */
+/* Section scaffolding: sticky heading on the left, content on the right */
 .section {
   position: relative;
   counter-increment: section;
-  padding-block: var(--sp-7);
+  padding-block: var(--sp-6);
+  scroll-margin-top: 56px; /* clear the sticky nav on anchor jumps */
 }
 /* hairline that fades at both ends instead of a hard full-width rule */
 .section::before {
@@ -95,78 +90,147 @@ img { max-width: 100%; height: auto; display: block; }
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--border) 18%, var(--border) 82%, transparent);
 }
-.section__eyebrow {
-  font-family: var(--font-mono);
-  font-size: var(--fs-0);
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--fg-soft);
-  margin-bottom: var(--sp-3);
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
+.section__grid {
+  display: grid;
+  grid-template-columns: 14rem minmax(0, 1fr);
+  gap: var(--sp-6);
+  align-items: start;
 }
-/* section number, ruled off from the label */
-.section__eyebrow::before {
+.section__head { position: sticky; top: calc(56px + var(--sp-4)); }
+/* section number from the lab-notebook counter */
+.section__head::before {
   content: counter(section, decimal-leading-zero);
-  color: var(--accent);
+  display: block;
+  font-size: var(--fs-0);
   font-weight: 700;
   letter-spacing: 0.12em;
-  padding-right: 0.75rem;
-  border-right: 1px solid var(--border-bright);
+  color: var(--accent);
+  margin-bottom: var(--sp-1);
 }
 .section__title {
-  font-size: var(--fs-5);
-  margin-bottom: var(--sp-4);
-  max-width: 20ch;
-  letter-spacing: -0.025em;
+  font-size: var(--fs-4);
+  line-height: 1.15;
+  text-wrap: balance;
 }
-.section__lede {
+@media (max-width: 860px) {
+  .section__grid { grid-template-columns: 1fr; gap: var(--sp-3); }
+  .section__head { position: static; }
+}
+
+/* Prose is set in Spectral; mono is kept for labels, dates and tags */
+.statement {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 2.8vw, 2.125rem);
+  line-height: 1.25;
+  color: var(--fg);
+  margin: 0 0 var(--sp-3);
+  text-wrap: balance;
+}
+.lede {
   font-family: var(--font-serif);
   font-size: var(--fs-3);
+  line-height: 1.65;
+  color: var(--fg-soft);
+  max-width: 60ch;
+  margin: 0 0 var(--sp-4);
+}
+.sub {
+  font-family: var(--font-mono);
+  font-size: var(--fs-0);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+  margin: var(--sp-5) 0 var(--sp-2);
+}
+.section__body > .sub:first-child { margin-top: 0; }
+
+/* Ruled rows: a narrow meta column (date, status) and the entry beside it */
+.rows { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid var(--border); }
+.row {
+  display: grid;
+  grid-template-columns: 8.5rem minmax(0, 1fr);
+  gap: var(--sp-3);
+  padding-block: var(--sp-3);
+  border-top: 1px solid var(--border);
+}
+.row__meta {
+  font-size: var(--fs-0);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+  font-variant-numeric: tabular-nums;
+  padding-top: 0.35em;
+}
+.row__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-3);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--fg);
+  margin: 0;
+}
+.row__title a { color: inherit; }
+.row__title a:hover { color: var(--accent); }
+.row__sub { font-size: var(--fs-1); color: var(--fg-soft); margin: 6px 0 0; }
+.row__text {
+  font-family: var(--font-serif);
+  font-size: 1.0625rem;
+  line-height: 1.6;
   color: var(--fg-soft);
   max-width: 62ch;
-  line-height: 1.7;
+  margin: var(--sp-1) 0 0;
+}
+/* a row that is a link: the whole row is the target */
+a.row { color: inherit; transition: background 0.2s var(--ease-out); }
+a.row:hover { background: color-mix(in srgb, var(--bg-raise) 70%, transparent); }
+a.row:hover .row__title { color: var(--accent); }
+.row__arrow {
+  display: inline-block;
+  margin-left: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.8em;
+  color: var(--fg-faint);
+  transition: transform 0.2s var(--ease-out);
+}
+a.row:hover .row__arrow { color: var(--accent); transform: translate(2px, -2px); }
+@media (max-width: 600px) {
+  .row { grid-template-columns: 1fr; gap: 6px; }
+  .row__meta { padding-top: 0; }
 }
 
-/* Shared surface: cards across projects / genomes / teaching read as one system.
-   Top-lit gradient, hairline border, and a soft accent glow + lift on hover. */
-.card {
-  position: relative;
-  display: block;
-  padding: var(--sp-3);
-  background: linear-gradient(160deg, var(--bg-card-2), var(--bg-card));
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  color: var(--fg);
-  overflow: hidden;
-  transition:
-    border-color 0.25s var(--ease-out),
-    transform 0.25s var(--ease-out),
-    box-shadow 0.25s var(--ease-out);
+.tags { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; padding: 0; margin: var(--sp-2) 0 0; }
+.tags li,
+.chip {
+  font-family: var(--font-mono);
+  font-size: var(--fs-0);
+  color: var(--fg-faint);
+  padding: 1px 8px;
+  border: 1px solid var(--border-bright);
+  border-radius: 999px;
+  white-space: nowrap;
 }
-.card:hover {
-  border-color: var(--border-bright);
-  transform: translateY(-3px);
-  box-shadow: 0 18px 40px -24px rgba(0, 0, 0, 0.9);
-}
-/* thin accent seam that lights up on hover */
-.card::after {
-  content: '';
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--accent), transparent);
-  opacity: 0;
-  transition: opacity 0.25s var(--ease-out);
-}
-.card:hover::after { opacity: 0.7; }
+.chip { display: inline-block; text-align: center; text-transform: uppercase; letter-spacing: 0.06em; color: var(--fg-soft); }
 
-/* Scroll-reveal: hidden until JS adds .is-in. No JS / reduced-motion => visible. */
+/* where a piece of work was presented: a type chip and the venue */
+.venues { list-style: none; padding: 0; margin: var(--sp-2) 0 0; display: grid; gap: var(--sp-1); }
+.venues li {
+  display: grid;
+  grid-template-columns: 4.5rem minmax(0, 1fr);
+  gap: var(--sp-2);
+  align-items: baseline;
+  color: var(--fg-soft);
+  font-size: var(--fs-1);
+}
+
+.more { margin: var(--sp-3) 0 0; font-size: var(--fs-1); }
+
+/* Scroll-reveal: a short fade once JS adds .is-in. No JS / reduced-motion => visible. */
 [data-reveal] {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+  transform: translateY(8px);
+  transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out);
 }
 [data-reveal].is-in { opacity: 1; transform: none; }
 .no-js [data-reveal],

@@ -24,6 +24,8 @@ const {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.site} />
+    <link rel="canonical" href={Astro.site} />
     <meta name="color-scheme" content="dark" />
 
     <!-- Fonts: preconnect, then load JetBrains Mono + Spectral non-render-blocking
@@ -48,9 +50,13 @@ const {
       />
     </noscript>
 
-    <!-- flag JS early so scroll-reveal can hide-then-reveal without a flash -->
+    <!-- flag JS early so scroll-reveal can hide-then-reveal without a flash.
+         If the reveal script never reports in, drop the flag so content shows. -->
     <script is:inline>
       document.documentElement.classList.add('js');
+      setTimeout(function () {
+        if (!window.__revealReady) document.documentElement.classList.remove('js');
+      }, 3000);
     </script>
   </head>
   <body>
@@ -66,7 +72,7 @@ const {
           <span class="site-footer__dot" aria-hidden="true"></span>
           © {new Date().getFullYear()} {site.name}
         </span>
-        <span class="site-footer__meta">Astro · Three.js · Lenis — on GitHub Pages</span>
+        <a class="site-footer__meta" href="#top">Back to top</a>
       </div>
     </footer>
 
@@ -104,10 +110,10 @@ const {
       .site-footer__mark { display: inline-flex; align-items: center; gap: var(--sp-1); color: var(--fg-soft); }
       .site-footer__dot {
         width: 7px; height: 7px; border-radius: 50%;
-        background: var(--accent-2);
-        box-shadow: 0 0 8px color-mix(in srgb, var(--accent-2) 60%, transparent);
+        background: var(--accent);
       }
-      .site-footer__meta { letter-spacing: 0.02em; }
+      .site-footer__meta { color: var(--fg-faint); }
+      .site-footer__meta:hover { color: var(--fg); }
     </style>
   </body>
 </html>

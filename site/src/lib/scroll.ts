@@ -1,43 +1,13 @@
-import Lenis from 'lenis';
-
 /**
- * Smooth scroll (Lenis) + lightweight scroll-reveal + nav chrome.
- * Reveals use IntersectionObserver rather than GSAP/ScrollTrigger to keep the
- * hub's JS budget small (the perf target in the spec). Lenis stays for the
- * smooth in-page feel. The hero owns the heavy code; the hub stays light.
+ * Lightweight scroll-reveal + nav chrome. Reveals use IntersectionObserver;
+ * anchor scrolling is native (CSS scroll-behavior + scroll-margin-top).
  */
 
-const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+// tells the inline guard in Base.astro that reveals are being handled
+(window as Window & { __revealReady?: boolean }).__revealReady = true;
+
 const revealEls = document.querySelectorAll<HTMLElement>('[data-reveal]');
 const revealAll = () => revealEls.forEach((el) => el.classList.add('is-in'));
-
-// --- smooth scroll (skipped under reduced motion) ---
-if (!reduce) {
-  try {
-    const lenis = new Lenis({ duration: 1.1, smoothWheel: true });
-    const raf = (time: number) => {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    };
-    requestAnimationFrame(raf);
-
-    document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach((a) => {
-      a.addEventListener('click', (e) => {
-        const hash = a.getAttribute('href');
-        if (!hash || hash === '#') return;
-        const target = document.querySelector<HTMLElement>(hash);
-        if (!target) return;
-        e.preventDefault();
-        lenis.scrollTo(target, { offset: -56 });
-        history.replaceState(null, '', hash);
-        // move keyboard focus to the target (skip-link / nav a11y)
-        target.focus({ preventScroll: true });
-      });
-    });
-  } catch {
-    /* native scrolling is a fine fallback */
-  }
-}
 
 // --- scroll reveal ---
 if ('IntersectionObserver' in window) {
